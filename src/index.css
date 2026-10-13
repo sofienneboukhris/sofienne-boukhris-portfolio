@@ -1,0 +1,496 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-frame: #00151F;
+    --color-bg: #02162B;
+    --color-surface: #00283A;
+    --color-surface-hover: #02364e;
+    --color-border: #0a3d54;
+    --color-primary: #70ba65;
+    --color-primary-hover: #5da353;
+    --color-text-title: #fcfcfe;
+    --color-text-sub: #dedee0;
+    --color-text-muted: #919ca1;
+    --color-whatsapp: #25D366;
+  }
+
+  body {
+    background-color: var(--color-frame);
+    color: var(--color-text-sub);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: var(--color-text-title);
+  }
+}
+
+/* Authentic Trueman Pill Button */
+.trm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  padding: 0 32px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.trm-btn-primary {
+  background-color: #70ba65;
+  border: 2px solid #70ba65;
+  color: #fcfcfe;
+}
+
+.trm-btn-primary:hover {
+  background-color: #5da353;
+  border-color: #5da353;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(112, 186, 101, 0.3);
+}
+
+.trm-btn-border {
+  background-color: transparent;
+  border: 2px solid #fcfcfe;
+  color: #fcfcfe;
+}
+
+.trm-btn-border:hover {
+  background-color: rgba(252, 252, 254, 0.1);
+  border-color: #70ba65;
+  color: #70ba65;
+  transform: translateY(-2px);
+}
+
+.trm-btn-accent-border {
+  background-color: transparent;
+  border: 2px solid #70ba65;
+  color: #70ba65;
+}
+
+.trm-btn-accent-border:hover {
+  background-color: #70ba65;
+  color: #fcfcfe;
+  transform: translateY(-2px);
+}
+
+/* Trueman Card */
+.trm-card {
+  background-color: #00283A;
+  border: 1px solid rgba(10, 61, 84, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.trm-card:hover {
+  border-color: rgba(112, 186, 101, 0.4);
+  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.6);
+}
+
+/* Subtle Section Divider Line with Number */
+.trm-section-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 2rem;
+}
+
+.trm-section-divider-line {
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(112, 186, 101, 0.4) 0%, rgba(10, 61, 84, 0.4) 100%);
+}
+
+/* WhatsApp Floating Pulse */
+@keyframes wa-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.wa-pulse-animation {
+  animation: wa-pulse 2s infinite;
+}
+
+/* ==========================================================================
+   DEDICATED PRINT STYLESHEET
+   Optimized for Project Details & Resume / CV Info Clean Printing
+   ========================================================================== */
+
+@media print {
+  /* Page Setup: A4 Portrait with standard margins */
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm 15mm 15mm;
+  }
+
+  /* Universal Print Color, Shadow & Background Reset */
+  *,
+  *::before,
+  *::after {
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Reset motion transitions & transforms in print */
+  [style*="opacity"],
+  [style*="transform"],
+  .motion-route-container {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Root & Body Typography */
+  html,
+  body {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 9.5pt !important;
+    line-height: 1.5 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Headings */
+  h1, h2, h3, h4, h5, h6,
+  .font-serif,
+  .font-display {
+    color: #000000 !important;
+    font-family: 'Playfair Display', Georgia, serif !important;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+
+  h1 { font-size: 20pt !important; line-height: 1.2 !important; margin-bottom: 6pt !important; }
+  h2 { font-size: 15pt !important; line-height: 1.3 !important; margin-bottom: 5pt !important; }
+  h3 { font-size: 12pt !important; line-height: 1.3 !important; margin-bottom: 4pt !important; }
+  h4 { font-size: 10.5pt !important; line-height: 1.3 !important; }
+
+  p, li, span, blockquote {
+    color: #1f2937 !important;
+  }
+
+  /* High-Contrast Print Accents (Darker Green & Primary Colors) */
+  .text-\[\#70ba65\],
+  .text-\[\#25D366\] {
+    color: #15803d !important; /* Deep emerald for crisp legibility on paper */
+  }
+
+  .text-\[\#38bdf8\] {
+    color: #0369a1 !important;
+  }
+
+  .text-\[\#f59e0b\] {
+    color: #b45309 !important;
+  }
+
+  .text-\[\#a78bfa\] {
+    color: #6d28d9 !important;
+  }
+
+  .text-\[\#dedee0\],
+  .text-\[\#a8b4b9\],
+  .text-\[\#919ca1\] {
+    color: #4b5563 !important;
+  }
+
+  /* HIDE Screen-Only UI Elements */
+  header#site-header,
+  header.trm-header,
+  nav,
+  footer#site-footer,
+  #floating-whatsapp-btn,
+  #global-scroll-progress,
+  aside[aria-label*="WhatsApp"],
+  .wa-pulse-animation,
+  #project-contact-form,
+  form,
+  input,
+  textarea,
+  select,
+  .trm-btn,
+  button,
+  .breadcrumbs-container,
+  nav[aria-label="Breadcrumb"],
+  .no-print,
+  .print-hidden,
+  .screen-only,
+  div[class*="blur-3xl"],
+  div[class*="pointer-events-none"] {
+    display: none !important;
+  }
+
+  /* UNHIDE Print-Only Components */
+  .print-only,
+  .print\:block {
+    display: block !important;
+  }
+
+  .print\:flex {
+    display: flex !important;
+  }
+
+  .print\:inline-block {
+    display: inline-block !important;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Container & Grid Adjustments */
+  .max-w-7xl,
+  .max-w-6xl,
+  .max-w-5xl,
+  .max-w-4xl,
+  .max-w-3xl,
+  .container {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Flatten nested layouts for clean paper flow */
+  .flex-col.lg\:flex-row {
+    display: block !important;
+  }
+
+  /* Card and Container Styling */
+  .trm-card {
+    background-color: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    padding: 12pt 14pt !important;
+    margin-bottom: 12pt !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  section,
+  article,
+  .stage-item,
+  #project-timeline-section,
+  #stats-banner {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Section Dividers in Print */
+  .trm-section-divider-line {
+    background: #d1d5db !important;
+    height: 1px !important;
+  }
+
+  .trm-section-divider span {
+    background: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+    color: #15803d !important;
+  }
+
+  /* ========================================================================
+     PROJECT DETAILS PRINT STYLING (ProjectDetailView)
+     ======================================================================== */
+
+  /* Constrain Project Hero Image for Print */
+  .aspect-\[16\/9\] {
+    aspect-ratio: auto !important;
+    height: 180pt !important;
+    max-height: 180pt !important;
+    border-radius: 6px !important;
+    margin-bottom: 8pt !important;
+    border: 1px solid #d1d5db !important;
+  }
+
+  .aspect-\[16\/9\] img {
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 6px !important;
+  }
+
+  /* Hide dark gradient overlays over hero image */
+  .aspect-\[16\/9\] .bg-gradient-to-t,
+  .aspect-\[16\/9\] div[class*="gradient"] {
+    display: none !important;
+  }
+
+  /* Neutralize Dark Color Backgrounds */
+  .bg-\[\#02162B\],
+  .bg-\[\#001E2B\],
+  .bg-\[\#00283A\],
+  .bg-\[\#00151F\] {
+    background-color: #f9fafb !important;
+    border-color: #e5e7eb !important;
+    color: #111827 !important;
+  }
+
+  /* Technologies Pill Badges */
+  span.text-xs.text-white.bg-\[\#02162B\],
+  .border-\[\#0a3d54\] {
+    background-color: #f3f4f6 !important;
+    border: 1px solid #d1d5db !important;
+    color: #1f2937 !important;
+    font-size: 8pt !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+  }
+
+  /* Project Timeline Print Layout */
+  #project-timeline-section {
+    border: 1px solid #d1d5db !important;
+    background: #ffffff !important;
+    padding: 12pt 14pt !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  #project-timeline-section .absolute.left-4,
+  #project-timeline-section .absolute.left-6 {
+    border-left: 2px solid #15803d !important;
+    background: transparent !important;
+    opacity: 1 !important;
+  }
+
+  #project-timeline-section .group > div:first-child > div {
+    background-color: #ffffff !important;
+    border: 2px solid #15803d !important;
+    box-shadow: none !important;
+    color: #15803d !important;
+  }
+
+  #project-timeline-section .flex-1.bg-\[\#02162B\]\/85 {
+    background-color: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: none !important;
+    padding: 10pt 12pt !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  #project-timeline-section .grid > div {
+    background-color: #f9fafb !important;
+    border: 1px solid #e5e7eb !important;
+    color: #1f2937 !important;
+    font-size: 8pt !important;
+    padding: 4pt 6pt !important;
+  }
+
+  /* Features list items */
+  .grid.grid-cols-1.sm\:grid-cols-2.gap-4 > div {
+    background-color: #f9fafb !important;
+    border: 1px solid #e5e7eb !important;
+    padding: 6pt 8pt !important;
+  }
+
+  /* Verified Results Banner */
+  .bg-\[\#70ba65\]\/10,
+  .border-\[\#70ba65\]\/30 {
+    background-color: #f0fdf4 !important;
+    border: 1.5px solid #16a34a !important;
+    color: #14532d !important;
+  }
+
+  /* ========================================================================
+     RESUME & ABOUT PRINT STYLING (AboutView & SidebarCard)
+     ======================================================================== */
+
+  #profile-sidebar {
+    width: 100% !important;
+    margin-bottom: 14pt !important;
+    position: static !important;
+  }
+
+  #profile-sidebar .trm-card {
+    position: static !important;
+    padding: 12pt 16pt !important;
+    background-color: #ffffff !important;
+    border: 1.5px solid #15803d !important;
+    border-radius: 8px !important;
+  }
+
+  #profile-sidebar .rounded-full {
+    border-color: #15803d !important;
+  }
+
+  /* Stats Banner in Print */
+  #stats-banner {
+    background: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+    padding: 10pt 12pt !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  #stats-banner,
+  #stats-banner * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  #stats-banner .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 8pt !important;
+  }
+
+  #stats-banner .grid > div {
+    background-color: #f9fafb !important;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: none !important;
+    padding: 8pt !important;
+  }
+
+  #stats-banner .text-3xl,
+  #stats-banner .text-4xl {
+    font-size: 18pt !important;
+    color: #15803d !important;
+    margin-bottom: 2pt !important;
+  }
+
+  /* Links & URLs */
+  a {
+    color: #15803d !important;
+    text-decoration: none !important;
+  }
+
+  /* Explicitly print destination for live links */
+  a.print-show-url::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #4b5563;
+    font-weight: normal;
+  }
+}
+
